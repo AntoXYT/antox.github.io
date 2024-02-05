@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivi per Essere il Tuo Valentino</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffe6e6;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+  .heart {
+    color: #ff6699;
+  }
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff6699;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #ffcccc;
+}
+    .container {
+      width: 80%;
+      margin: auto;
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .slide {
+      display: none;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .slide.active {
+      display: block;
+    }
+    .controls {
+      margin-top: 20px;
+    }
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <ul>
+        <li><a href="valentine.html">Home</a></li>
+        <li><a href="motivi.html">Motivi per essere il mio valentino</a></li>
+        <li><a href="galleria.html">Galleria</a></li>
+      </ul>
+  <div class="container">
+    <div class="slide active">
+      <h1>10 Motivi per Essere il Tuo Valentino</h1>
+      <p>1. Gioco a fortnite e su fortnite ci sono i balletti, e a te piace ballare.</p>
+      <img src="fortnite.jpg" alt="Motivo 1">
+    </div>
+    <div class="slide">
+      <h1>5 Motivi per Essere il Tuo Valentino</h1>
+      <p>2. Abbiamo entrambi gli occhiali.</p>
+      <img src="fortnite2.jpg" alt="Motivo 2">
+    </div>
+    <div class="slide">
+      <h1>5 Motivi per Essere il Tuo Valentino</h1>
+      <p>3. Mi piace calcutta quindi anche tu mi piaci.</p>
+      <img src="fortnite3.jpg" alt="Motivo 3">
+    </div>
+    <div class="slide">
+      <h1>5 Motivi per Essere il Tuo Valentino</h1>
+      <p>4. Mi piace passare il tempo con te.</p>
+      <img src="fortnite4.jpg" alt="Motivo 4">
+    </div>
+    <div class="slide">
+      <h1>5 Motivi per Essere il Tuo Valentino</h1>
+      <p>5. Ti mangio.</p>
+      <img src="fortnite5.jpg" alt="Motivo 5">
+    </div>
+    <div class="controls">
+      <button class="btn" onclick="prevSlide()">Precedente</button>
+      <button class="btn" onclick="nextSlide()">Successivo</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+  </script>
+</body>
+</html>

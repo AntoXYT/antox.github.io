@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galleria di Immagini</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-6sikR4yF1Aef9bLZ8FHZjbTzAT7X4I2vX3lwyT2kDpEzSJ2C5b5v93q9R9GnLWXDDmxBtmMdGp1rvrMnvDiYYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffe6e6;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff6699;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #ffcccc;
+}
+
+    .gallery-container {
+        max-width: 700px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery {
+        text-align: center;
+        position: relative;
+    }
+
+    .image {
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .fullscreen-arrows {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .fullscreen-arrow {
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .fullscreen-arrow:hover {
+        color: #ccc;
+    }
+</style>
+</head>
+<body>
+    <ul>
+        <li><a href="valentine.html">Home</a></li>
+        <li><a href="motivi.html">Motivi per essere il mio valentino</a></li>
+        <li><a href="galleria.html">Galleria</a></li>
+      </ul>
+<div class="gallery-container">
+    <div class="gallery">
+        <img src="1.jpg" class="image" id="currentImage" onclick="toggleFullScreen()">
+        <div class="fullscreen-arrows">
+            <i class="fas fa-chevron-left fullscreen-arrow" onclick="previousImage()"></i>
+            <i class="fas fa-chevron-right fullscreen-arrow" onclick="nextImage()"></i>
+        </div>
+        <br>
+        <button class="btn" onclick="previousImage()">Indietro</button>
+        <button class="btn" onclick="nextImage()">Avanti</button>
+    </div>
+</div>
+
+<script>
+    var currentImageIndex = 0;
+    var images = ["galleria1.jpg", "galleria2.jpg", "galleria4.jpg", "galleria5.jpg", "galleria6.jpg", "galleria7.jpg", "galleria8.jpg", "galleria10.jpg", "galleria11.jpg", "galleria12.jpg", "galleria13.jpg", "galleria14.jpg", "galleria15.jpg", "galleria16.jpg", "galleria17.jpg", "galleria18.jpg", "galleria19.jpg", "galleria20.jpg", "galleria21.jpg", "galleria22.jpg", "galleria23.jpg", "galleria24.jpg", "galleria25.jpg", "galleria26.jpg", "galleria27.jpg"]; // Inserisci i percorsi delle tue immagini qui
+
+    function showImage(index) {
+        var imageElement = document.getElementById('currentImage');
+        imageElement.src = "galleria/" + images[index];
+        currentImageIndex = index;
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showImage(currentImageIndex);
+    }
+
+    function previousImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        showImage(currentImageIndex);
+    }
+
+    function toggleFullScreen() {
+        var elem = document.getElementById("currentImage");
+        if (!document.fullscreenElement) {
+            elem.requestFullscreen().catch(err => {
+                console.error(`Errore durante la richiesta della modalità a schermo intero: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
+    // Mostra la prima immagine all'avvio
+    showImage(currentImageIndex);
+</script>
+
+</body>
+</html>

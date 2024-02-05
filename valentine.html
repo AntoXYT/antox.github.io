@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sei il mio Valentino?</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffe6e6;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    margin-top: 50px;
+    font-size: 28px;
+    color: #ff6699;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .button {
+    padding: 10px 20px;
+    position: absolute;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffcccc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: transform 0.2s;
+  }
+  .button:hover {
+    transform: scale(1.1);
+  }
+  #noButtonContainer {
+    position: absolute;
+    float: right;
+    right: 48%;
+  }
+  #noButtonContainer button {
+    background-color: #ffcccc;
+  }
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+  .heart {
+    color: #ff6699;
+  }
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff6699;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #ffcccc;
+}
+  .gallery {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .gallery img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
+<body>
+  <ul>
+    <li><a href="valentine.html">Home</a></li>
+    <li><a href="motivi.html">Motivi per essere il mio valentino</a></li>
+    <li><a href="galleria.html">Galleria</a></li>
+  </ul>
+  <h1>Vuoi essere il mio Valentino?</h1>
+  <div class="buttons">
+    <button id="yesButton" class="button" onclick="alert('Fantastico! Sei invitata a passare del tempo il 14 Febbraio (godo) (seee)!')">Sì <span class="heart">&hearts;</span></button>
+    <div id="noButtonContainer">
+      <button id="noButton" class="button" onclick="moveNoButton()">No</button>
+    </div>
+  </div>
+  <div class="gallery">
+    <img src="1.jpg" alt="Immagine 1">
+    <img src="2.jpg" alt="Immagine 2">
+    <img src="3.jpg" alt="Immagine 3">
+    <img src="4.jpg" alt="Immagine 4">
+    <img src="5.jpg" alt="Immagine 5">
+    <img src="6.png" alt="Immagine 6">
+  </div>
+  <script>
+    function moveNoButton() {
+      var container = document.getElementById('noButtonContainer');
+      container.style.top = getRandomNumber(10, window.innerHeight - 50) + 'px';
+      container.style.left = getRandomNumber(10, window.innerWidth - 100) + 'px';
+    }
+
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  </script>
+</body>
+</html>
